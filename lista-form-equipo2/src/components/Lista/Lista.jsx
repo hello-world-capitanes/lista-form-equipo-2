@@ -1,24 +1,8 @@
 import { useState } from "react"
 
-function Lista (){
+function Lista ({listaDatos, setListaDatos}){
 
-    const [listaDatos, setListaDatos] = useState([
-        {
-            "Nombre": "Objeto 1",
-            "Acepta": true,
-            "Provincia": "Madrid"
-          },
-          {
-            "Nombre": "Objeto 2",
-            "Acepta": false,
-            "Provincia": "Barcelona"
-          },
-          {
-            "Nombre": "Objeto 3",
-            "Acepta": true,
-            "Provincia": "Valencia"
-          }
-    ])
+    const [verModal, setVerModal]=useState(false)
 
     function borrarElemento(nombre){
         setListaDatos((list)=>{
@@ -26,7 +10,6 @@ function Lista (){
             return nuevaLista
         })
     }
-
 
     function subir(index){
         let listaAux= [...listaDatos]
@@ -43,6 +26,10 @@ function Lista (){
         setListaDatos(listaAux)
     }
 
+    function abrirModal(datosPersona){
+        setVerModal(true)
+    }
+    
     return (
     <div className="App">
         <h1>Lista de Datos desde JSON</h1>
@@ -53,7 +40,7 @@ function Lista (){
                 <button onClick={() => borrarElemento(item.Nombre)}>Eliminar</button>
                 <button disabled={(0===index) ? true : false} onClick={() => subir(index)}>Subir</button>
                 <button disabled={(listaDatos.length-1===index) ? true : false} onClick={() => bajar(index)}>Bajar</button>
-
+                <button onClick={()=>abrirModal(lista[index])} >Ampliar</button>
             </li>
         ))}
         </ul>
