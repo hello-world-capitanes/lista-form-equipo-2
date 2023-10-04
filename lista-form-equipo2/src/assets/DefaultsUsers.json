@@ -1,1 +1,17 @@
-[  {    "Nombre": "Objeto 1",    "Acepta": true,    "Provincia": "Madrid"  },  {    "Nombre": "Objeto 2",    "Acepta": false,    "Provincia": "Barcelona"  },  {    "Nombre": "Objeto 3",    "Acepta": true,    "Provincia": "Valencia"  }]
+[  
+    {    
+        "Nombre": "Objeto 1",
+        "Acepta": true,    
+        "Provincia": "Madrid"  
+    },  
+    {    
+        "Nombre": "Objeto 2",    
+        "Acepta": false,    
+        "Provincia": "Barcelona" 
+    },  
+    {    
+        "Nombre": "Objeto 3",    
+        "Acepta": true,    
+        "Provincia": "Valencia"  
+    }
+]
