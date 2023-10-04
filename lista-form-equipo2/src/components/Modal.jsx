@@ -1,10 +1,17 @@
 import React from 'react'
 import Title from './Title'
 
-const Modal = () => {
+const Modal = ({
+    handleModalShow
+}) => {
+
   return (
-    <div>
+    <div className='modal_container'>
         <Title title={'Modal'}/>
+        <p>Name</p>
+        <p>Checked</p>
+        <p>Province</p>
+        <button onClick={() => handleModalShow(false)}>Close</button>
     </div>
   )
 }
