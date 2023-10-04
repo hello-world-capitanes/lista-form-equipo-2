@@ -1,31 +1,22 @@
-import { useState } from 'react'
 import './App.css'
-import Lista from './components/Lista/Lista'
+import Form from './components/Form'
+import { useState } from 'react';
+import defaultUsers from './assets/DefaultsUsers.json'
+import { Select } from './components/SelectorComponent'
+import provincias from './assets/provincias.json'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const [listaDatos, setListaDatos] = useState([
-    {
-        "Nombre": "Objeto 1",
-        "Acepta": true,
-        "Provincia": "Madrid"
-      },
-      {
-        "Nombre": "Objeto 2",
-        "Acepta": false,
-        "Provincia": "Barcelona"
-      },
-      {
-        "Nombre": "Objeto 3",
-        "Acepta": true,
-        "Provincia": "Valencia"
-      }
-])
+  const [listaDatos, setListaDatos] = useState(defaultUsers);
+  console.log(listaDatos)
   return (
     <>
-      <Lista listaDatos={listaDatos} setListaDatos={setListaDatos}></Lista>
+    <Form listaDatos={listaDatos} setListaDatos={setListaDatos}></Form>
     </>
+    
+      <div>
+        <Lista listaDatos={listaDatos} setListaDatos={setListaDatos}></Lista>
+        <Select data={provincias}/>
+      </div>
   )
 }
 
