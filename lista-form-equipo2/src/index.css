@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 * {
   padding: 0;
   margin: 0;
@@ -9,7 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-=======
+}
+
 .primaryButton {
   width: 200px;
   height: 40px;
@@ -20,8 +20,56 @@
   border-radius: 100px;
 }
 
-
 .primaryButton:hover{
   background-color: #7bb6e9;
->>>>>>> develop
 }
+
+.listElement {
+  padding: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 0.3rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.listElement:hover {
+  background-color: #7bb6e9;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.test {
+  width: 80px;
+  height: 80px;
+  background-color: blueviolet;
+}
+
+.modal_container {
+  width: 60vw;
+  height: 50vh;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: rgb(241, 241, 246);
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.listContainer {
+  flex-direction: column;
+  margin: 2rem 0;
+  padding: 0.5rem;
+}
+
+.modalInfo {
+  width: 80%;
+  min-height: 50%;
+  flex-direction: column;
+}
+
+.modalInfo p {
+  padding: 0.5rem;
+}
+

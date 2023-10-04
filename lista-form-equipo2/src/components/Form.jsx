@@ -6,7 +6,7 @@ function Form({listaDatos, setListaDatos}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const nuevoDato = { Nombre: inputTexto, Acepta: checkbox};
+    const nuevoDato = { id: parseInt(Math.random * new Date()), Nombre: inputTexto, Acepta: checkbox};
     setListaDatos([...listaDatos, nuevoDato]);
     setInputTexto('');
     setCheckbox(false);

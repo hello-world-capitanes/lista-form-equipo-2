@@ -5,16 +5,19 @@ import Form from './components/Form'
 import defaultUsers from './assets/DefaultsUsers.json'
 import { Select } from './components/SelectorComponent'
 import provincias from './assets/provincias.json'
+import Lista from './components/Lista/Lista'
 
 function App() {
 
   const [show, setShow] = useState(false)
   const [listaDatos, setListaDatos] = useState(defaultUsers);
+  const [id, setId] = useState();
 
-  const handleModalShow = (boolean) => {
+  const handleModalShow = (boolean, id) => {
     setShow((prevShow) => prevShow = boolean)
-    console.log(show)
+    setId(id)
   }
+  
  
   return (
     <>
@@ -22,9 +25,14 @@ function App() {
       <div>
         <Select data={provincias}/>
       </div>
-      <div className='container d-flex'>
-      {show ? <Modal handleModalShow={handleModalShow} /> : <div onDoubleClick={() => handleModalShow(true)} className='test'></div>}
-    </div>
+      {show ? 
+      <Modal listaDatos={listaDatos} id={id} handleModalShow={handleModalShow} /> :
+      <Lista 
+          listaDatos={listaDatos} 
+          setListaDatos={setListaDatos}
+          handleModalShow={handleModalShow}>
+      </Lista>
+      }
     </>
     
       
