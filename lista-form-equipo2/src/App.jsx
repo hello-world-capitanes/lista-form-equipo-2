@@ -11,11 +11,8 @@ function App() {
   return (
     <>
     <Form listaDatos={listaDatos} setListaDatos={setListaDatos}></Form>
+    <Select data={provincias}/>
     </>
-    
-      <div>
-        <Select data={provincias}/>
-        </div>
   )
 }
 
