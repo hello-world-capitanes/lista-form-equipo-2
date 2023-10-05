@@ -1,19 +1,49 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Modal from './components/Modal'
 import './App.css'
+import Form from './components/Form'
+import defaultUsers from './assets/DefaultsUsers.json'
 import { Select } from './components/SelectorComponent'
 import provincias from './assets/provincias.json'
-import defaultUsers from './assets/DefaultsUsers.json'
+
+
+
 
 function App() {
-  const [listaDatos, setListaDatos] = useState([...defaultUsers])
 
+
+  const [show, setShow] = useState(false)
+  const [listaDatos, setListaDatos] = useState(defaultUsers);
+  const [id, setId] = useState();
+
+  const handleModalShow = (boolean, id) => {
+    setShow((prevShow) => prevShow = boolean)
+    setId(id)
+  }
+  
+ 
   return (
-    
-      <div>
+    <>
+      <Form listaDatos={listaDatos} setListaDatos={setListaDatos}>
+
+
+      </Form>
+      
         <Select data={provincias} listaDatos={listaDatos} setListaDatos={setListaDatos}/>
-        </div>
+      
+      
+      {show ? 
+      <Modal listaDatos={listaDatos} id={id} handleModalShow={handleModalShow} /> :
+      <Lista 
+          listaDatos={listaDatos} 
+          setListaDatos={setListaDatos}
+          handleModalShow={handleModalShow}>
+      </Lista>
+      }
+    </>
+    
+      
+
   )
 }
 
