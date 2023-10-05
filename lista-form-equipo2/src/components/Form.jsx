@@ -40,7 +40,6 @@ function Form({listaDatos, setListaDatos}) {
    
   }
 
-  console.log(form)
   return (
     <div>
       <h2>Formulario</h2>

@@ -26,7 +26,6 @@ function Lista ({listaDatos, setListaDatos, handleModalShow}){
     
     return (
     <div className="listContainer d-flex">
-        <h1>Lista de Datos desde JSON</h1>
         <ul>
         {listaDatos.map((item, index) => (
             <li className="listElement" key={item.Nombre} onDoubleClick={() => handleModalShow(true, item.id)}>
