@@ -1,16 +1,46 @@
 import { useState } from 'react';
+import { Select } from './SelectorComponent';
+import provincias from '../assets/provincias.json'
+
 
 function Form({listaDatos, setListaDatos}) {
-  const [inputTexto, setInputTexto] = useState('');
-  const [checkbox, setCheckbox] = useState(false);
+  
 
-  const handleSubmit = (e) => {
+  const [form, setForm] = useState({
+    Nombre: "",
+    Acepta: "",
+    Provincia: ""
+  })
+
+  
+  const onChangeFormData = (e) => {
     e.preventDefault();
-    const nuevoDato = { id: parseInt(Math.random * new Date()), Nombre: inputTexto, Acepta: checkbox};
-    setListaDatos([...listaDatos, nuevoDato]);
-    setInputTexto('');
-    setCheckbox(false);
+   if (e.target.name == "Checked") {
+    setForm({...form, 
+      [e.target.name] : e.target.checked,
+    });
+   }else{
+    setForm({...form, 
+      [e.target.name] : e.target.value,
+    });
+  }
+   
+
   };
+
+  const handleSubmit =(e)=>{
+   e.preventDefault()
+
+   setForm({...form, 
+    id: Math.random()* new Date()
+   })
+
+
+  setListaDatos([...listaDatos, form])
+   
+  }
+
+  console.log(form)
   return (
     <div>
       <h2>Formulario</h2>
@@ -19,20 +49,21 @@ function Form({listaDatos, setListaDatos}) {
           <label>Nombre: </label>
           <input
             type="text"
-            name="texto"
-            value={inputTexto}
-            onChange={(e) => setInputTexto(e.target.value)}
+            name="Nombre"
+            value={form.Nombre}
+            onChange={onChangeFormData}
           />
         </div>
         <div>
           <label>Casado: </label>
           <input
             type="checkbox"
-            name="checkbox"
-            checked={checkbox}
-            onChange={(e) => setCheckbox(e.target.checked)}
+            name="Acepta"
+            onChange={onChangeFormData}
           />
         </div>
+        <Select data={provincias} listaDatos={form} setListaDatos={setForm}/>
+
         <button type="submit">Enviar</button>
       </form>
     </div>

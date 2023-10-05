@@ -4,8 +4,8 @@ import './App.css'
 import Form from './components/Form'
 import defaultUsers from './assets/DefaultsUsers.json'
 import { Select } from './components/SelectorComponent'
-import provincias from './assets/provincias.json'
 
+import Lista from './components/Lista/Lista'
 
 
 
@@ -29,7 +29,7 @@ function App() {
 
       </Form>
       
-        <Select data={provincias} listaDatos={listaDatos} setListaDatos={setListaDatos}/>
+        
       
       
       {show ? 

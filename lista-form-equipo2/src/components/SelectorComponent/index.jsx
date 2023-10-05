@@ -11,12 +11,14 @@ export const Select =({data, listaDatos, setListaDatos})=>{
 
     const selectItemFromSelect =(provincia)=>{
         
-        setListaDatos([...listaDatos, 
-            listaDatos[listaDatos.length-1].Provincia= provincia]
+        setListaDatos({...listaDatos, 
+            Provincia: provincia
+            }
             )
+            
     }
 
-
+    console.log(listaDatos)
 
     return (
         <>
