@@ -29,7 +29,7 @@ function Lista ({listaDatos, setListaDatos, handleModalShow}){
         <ul>
         {listaDatos.map((item, index) => (
             <li className="listElement" key={item.Nombre} onDoubleClick={() => handleModalShow(true, item.id)}>
-                <strong>Nombre:</strong> {item.Nombre}, <strong>Casado:</strong> {item.Acepta ? 'Sí' : 'No'}, <strong>Provincia:</strong> {item.Provincia}
+                <strong>Nombre:</strong> {item.Nombre}, <strong>Acepta:</strong> {item.Acepta ? 'Sí' : 'No'}, <strong>Provincia:</strong> {item.Provincia}
                 <button onClick={() => borrarElemento(item.Nombre)}>Eliminar</button>
                 <button disabled={(0===index) ? true : false} onClick={() => subir(index)}>Subir</button>
                 <button disabled={(listaDatos.length-1===index) ? true : false} onClick={() => bajar(index)}>Bajar</button>
