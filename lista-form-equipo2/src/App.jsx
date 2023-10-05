@@ -4,14 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Select } from './components/SelectorComponent'
 import provincias from './assets/provincias.json'
+import defaultUsers from './assets/DefaultsUsers.json'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [listaDatos, setListaDatos] = useState([...defaultUsers])
 
   return (
     
       <div>
-        <Select data={provincias}/>
+        <Select data={provincias} listaDatos={listaDatos} setListaDatos={setListaDatos}/>
         </div>
   )
 }
