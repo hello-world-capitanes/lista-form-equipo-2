@@ -1,7 +1,8 @@
-
+import { useState } from "react"
 import {BsFillTrashFill} from 'react-icons/bs'
 import {BsFillArrowUpCircleFill} from 'react-icons/bs'
 import {BsFillArrowDownCircleFill} from 'react-icons/bs'
+
 
 function Lista ({listaDatos, setListaDatos, handleModalShow}){
 
@@ -34,17 +35,23 @@ function Lista ({listaDatos, setListaDatos, handleModalShow}){
             <li className="listElement" key={item.id} onDoubleClick={() => handleModalShow(true, item.id)}>
                 <strong>Nombre:</strong> {item.Nombre}, <strong>Acepta:</strong> {item.Acepta ? 'Sí' : 'No'}, <strong>Provincia:</strong> {item.Provincia}
                 <div className="d-flex buttonContainer">
-                    <BsFillTrashFill 
-                        className='buttons red'
-                        onClick={() => borrarElemento(item.Nombre)} />
-                    <BsFillArrowUpCircleFill 
-                        className='buttons green'
+                    <button 
+                        className="buttons red" 
+                        onClick={() => borrarElemento(item.Nombre)}>
+                            <BsFillTrashFill className="buttonIcon"/>
+                    </button>
+                    <button 
+                        className="buttons blue"
                         disabled={(0===index) ? true : false} 
-                        onClick={() => subir(index)} />
-                    <BsFillArrowDownCircleFill 
-                        className='buttons blue'
+                        onClick={() => subir(index)}>
+                            <BsFillArrowUpCircleFill className="buttonIcon"/>
+                    </button>
+                    <button 
+                        className="buttons green" 
                         disabled={(listaDatos.length-1===index) ? true : false} 
-                        onClick={() => bajar(index)} />
+                        onClick={() => bajar(index)}>
+                            <BsFillArrowDownCircleFill className="buttonIcon"/>
+                    </button>
                 </div>
             </li>
         ))}

@@ -25,23 +25,16 @@
   background-color: #7bb6e9;
 }
 
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .listElement {
-  padding: 0.5rem;
   cursor: pointer;
   list-style: none;
   border-radius: 0.3rem;
+  padding: 1rem;
   transition: all 0.5s ease-in-out;
 }
 
 .listElement:hover {
-  background-color: #7bb6e9;
+  background-color:  rgb(241, 241, 246);
 }
 
 .container {
@@ -118,7 +111,14 @@
 }
 
 .buttons {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
   margin: 0.5rem;
+  display: grid;
+  place-content: center;
+  background-color: white;
 }
 
 .red {
@@ -132,5 +132,10 @@
 .blue {
   color: blue;
 }
+
+.buttonIcon {
+  font-size: 1.5rem;
+}
+
 
 

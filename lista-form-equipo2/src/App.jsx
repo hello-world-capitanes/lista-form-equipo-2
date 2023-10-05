@@ -23,7 +23,7 @@ function App() {
   
  
   return (
-    <div className='mainContainer'>
+    <div className='d-flex'>
       <Form listaDatos={listaDatos} setListaDatos={setListaDatos}></Form>
       {show ? 
       <Modal listaDatos={listaDatos} id={id} handleModalShow={handleModalShow} /> :
