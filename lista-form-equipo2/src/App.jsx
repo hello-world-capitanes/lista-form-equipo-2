@@ -23,15 +23,8 @@ function App() {
   
  
   return (
-    <>
-      <Form listaDatos={listaDatos} setListaDatos={setListaDatos}>
-
-
-      </Form>
-      
-        
-      
-      
+    <div className='mainContainer'>
+      <Form listaDatos={listaDatos} setListaDatos={setListaDatos}></Form>
       {show ? 
       <Modal listaDatos={listaDatos} id={id} handleModalShow={handleModalShow} /> :
       <Lista 
@@ -40,7 +33,7 @@ function App() {
           handleModalShow={handleModalShow}>
       </Lista>
       }
-    </>
+    </div>
     
       
 

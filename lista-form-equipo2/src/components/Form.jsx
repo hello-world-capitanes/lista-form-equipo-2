@@ -4,7 +4,6 @@ import provincias from '../assets/provincias.json'
 
 
 function Form({listaDatos, setListaDatos}) {
-  
 
   const [form, setForm] = useState({
     Nombre: "",
@@ -40,30 +39,41 @@ function Form({listaDatos, setListaDatos}) {
    
   }
 
-  return (
-    <div>
-      <h2>Formulario</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre: </label>
-          <input
-            type="text"
-            name="Nombre"
-            value={form.Nombre}
-            onChange={onChangeFormData}
-          />
-        </div>
-        <div>
-          <label>Casado: </label>
-          <input
-            type="checkbox"
-            name="Acepta"
-            onChange={onChangeFormData}
-          />
-        </div>
-        <Select data={provincias} listaDatos={form} setListaDatos={setForm}/>
+  const inputTypes = [
+    {
+      type: 'text',
+      name: 'Nombre',
+      value: form.Nombre,
+      onChange: onChangeFormData
+    },
+    {
+      type: 'checkbox',
+      name: 'Acepta',
+      onChange: onChangeFormData
+    },
+  ] 
 
-        <button type="submit">Enviar</button>
+  const createInputs = inputTypes.map((element) => {
+    return (
+      <div className='inputContainer'>
+        <label htmlFor="#">{element.name}:</label>
+        <input 
+          className='input'
+          type={element.type} 
+          name={element.name} 
+          value={element.value} 
+          onChange={element.onChange}/>
+      </div>
+    )
+  })
+
+  return (
+    <div className='form_container d-flex'>
+      <h2>Formulario</h2>
+      <form className='form_mainContainer' onSubmit={handleSubmit}>
+        {createInputs}
+        <Select data={provincias} listaDatos={form} setListaDatos={setForm}/>
+        <button className='primaryButton' type="submit">Enviar</button>
       </form>
     </div>
   );

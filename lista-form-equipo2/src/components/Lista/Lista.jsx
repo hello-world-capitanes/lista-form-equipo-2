@@ -1,4 +1,7 @@
-import { useState } from "react"
+
+import {BsFillTrashFill} from 'react-icons/bs'
+import {BsFillArrowUpCircleFill} from 'react-icons/bs'
+import {BsFillArrowDownCircleFill} from 'react-icons/bs'
 
 function Lista ({listaDatos, setListaDatos, handleModalShow}){
 
@@ -28,11 +31,21 @@ function Lista ({listaDatos, setListaDatos, handleModalShow}){
     <div className="listContainer d-flex">
         <ul>
         {listaDatos.map((item, index) => (
-            <li className="listElement" key={item.Nombre} onDoubleClick={() => handleModalShow(true, item.id)}>
+            <li className="listElement" key={item.id} onDoubleClick={() => handleModalShow(true, item.id)}>
                 <strong>Nombre:</strong> {item.Nombre}, <strong>Acepta:</strong> {item.Acepta ? 'Sí' : 'No'}, <strong>Provincia:</strong> {item.Provincia}
-                <button onClick={() => borrarElemento(item.Nombre)}>Eliminar</button>
-                <button disabled={(0===index) ? true : false} onClick={() => subir(index)}>Subir</button>
-                <button disabled={(listaDatos.length-1===index) ? true : false} onClick={() => bajar(index)}>Bajar</button>
+                <div className="d-flex buttonContainer">
+                    <BsFillTrashFill 
+                        className='buttons red'
+                        onClick={() => borrarElemento(item.Nombre)} />
+                    <BsFillArrowUpCircleFill 
+                        className='buttons green'
+                        disabled={(0===index) ? true : false} 
+                        onClick={() => subir(index)} />
+                    <BsFillArrowDownCircleFill 
+                        className='buttons blue'
+                        disabled={(listaDatos.length-1===index) ? true : false} 
+                        onClick={() => bajar(index)} />
+                </div>
             </li>
         ))}
         </ul>
